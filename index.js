@@ -8,6 +8,10 @@ async function delay(ms) {
 }
 
 async function main() {
+    const rootDir = './photos'
+    if (!existsSync(rootDir))
+        await mkdirSync(rootDir)
+
     const app = await easyvk({
         username: process.env.VK_USERNAME,
         password: process.env.VK_PASSWORD,
